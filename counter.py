@@ -4,7 +4,7 @@ import imutils
 import cv2
 
 avg = None
-video = cv2.VideoCapture("edit.mp4")
+video = cv2.VideoCapture("people-capture.mp4")
 xvalues = list()
 motion = list()
 count1 = 0
@@ -31,7 +31,7 @@ while 1:
     gray = cv2.GaussianBlur(gray, (21, 21), 0)
 
     if avg is None:
-        print "[INFO] starting background model..."
+        print("[INFO] starting background model...")
         avg = gray.copy().astype("float")
         continue
 
@@ -46,8 +46,8 @@ while 1:
             continue
         (x, y, w, h) = cv2.boundingRect(c)
         xvalues.append(x)
-	cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
-	flag = False
+    cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
+    flag = False
 	
     no_x = len(xvalues)
     
